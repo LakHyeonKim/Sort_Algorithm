@@ -1,0 +1,30 @@
+package sort;
+
+import java.util.Arrays;
+
+public class SortAlgorithm {
+	
+	private static void selectionSort(int[] array, boolean order) {
+		for(int i = 0; i < array.length - 1; i++) {
+			int temp = i;
+			for(int j = i + 1; j < array.length; j++) {
+				if(order) {					
+					if(array[temp]>=array[j]) temp = j;
+				}else {
+					if(array[temp]<=array[j]) temp = j;
+				}
+			}
+			int value = array[i];
+			array[i] = array[temp];
+			array[i] = value;
+		}
+	}
+
+	public static void main(String[] args) {
+		int[] array = {3,4,2,6,4,7,2,3,10,293,2,5,1,88};
+		System.out.println(Arrays.toString(array));
+		selectionSort(array, true);
+		System.out.println(Arrays.toString(array));
+	}
+
+}

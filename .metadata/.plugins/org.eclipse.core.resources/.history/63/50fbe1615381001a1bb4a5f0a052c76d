@@ -76,10 +76,11 @@ public class SortAlgorithm {
 			int center = (start + end) / 2;
 			mergeSort(array, start, center);
 			mergeSort(array, center + 1, end);
+			
 			List<Integer> tempArray = new ArrayList<>();
-			int i = start, j = center + 1, copy = 0;
+			int i = start, j = center, copy = 0;
 			while(i <= center && j <= end) {
-				if(array[i] <= array[j]) tempArray.add(array[i++]);
+				if(array[i] < array[j]) tempArray.add(array[i++]);
 				else if(array[i] > array[j]) tempArray.add(array[j++]);
 			}
 			while(i <= center) tempArray.add(array[i++]);
@@ -96,7 +97,7 @@ public class SortAlgorithm {
 		//selectionSort(array, false);
 		//insertionSort(array);
 		//bubbleSort(array);
-		mergeSort(array, 0, array.length-1);
+		mergeSort(array, 0, array.length+1);
 		System.out.println(Arrays.toString(array));
 	}
 

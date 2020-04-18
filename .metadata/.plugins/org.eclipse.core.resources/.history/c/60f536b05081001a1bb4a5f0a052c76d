@@ -1,10 +1,6 @@
 package sort;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
-import com.sun.org.apache.regexp.internal.recompile;
 
 public class SortAlgorithm {
 	
@@ -51,52 +47,12 @@ public class SortAlgorithm {
 			array[j+1] = key;
 		}
 	}
-	
-	/**
-	 * Bubble Sort
-	 * 버블 정렬은 매번 연속된 두개 인덱스를 비교하여, 정한 기준의 값을 뒤로 넘겨 정렬하는 방법이다.
-	 * 
-	 * @param array Array you want to sort
-	 * @return void
-	 */
-	private static void bubbleSort(int[] array) {
-		for(int i = 0; i < array.length; i++) {
-			for(int j = 1; j < array.length; j++) {
-				if(array[j-1] > array[j]) {
-					int value = array[j-1];
-					array[j-1] = array[j];
-					array[j] = value;
-				}
-			}
-		}
-	}
-	
-	private static void mergeSort(int[] array, int start, int end) {
-		if(start < end) {
-			int center = (start + end) / 2;
-			mergeSort(array, start, center);
-			mergeSort(array, center + 1, end);
-			List<Integer> tempArray = new ArrayList<>();
-			int i = start, j = center + 1, copy = 0;
-			while(i <= center && j <= end) {
-				if(array[i] <= array[j]) tempArray.add(array[i++]);
-				else if(array[i] > array[j]) tempArray.add(array[j++]);
-			}
-			while(i <= center) tempArray.add(array[i++]);
-			while(j <= end) tempArray.add(array[j++]);
-			for(int k = start; k <= end; k++) {
-				array[k] = tempArray.get(copy++);
-			}
-		}
-	}
 
 	public static void main(String[] args) {
 		int[] array = {3,4,2,6,4,7,2,3,10,293,2,5,1,88};
 		System.out.println(Arrays.toString(array));
 		//selectionSort(array, false);
-		//insertionSort(array);
-		//bubbleSort(array);
-		mergeSort(array, 0, array.length-1);
+		insertionSort(array);
 		System.out.println(Arrays.toString(array));
 	}
 
