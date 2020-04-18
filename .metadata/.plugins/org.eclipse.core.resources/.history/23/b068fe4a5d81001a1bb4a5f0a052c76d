@@ -71,17 +71,6 @@ public class SortAlgorithm {
 		}
 	}
 	
-	/**
-	 * Merge Sort
-	 * 합병 정렬은 분할 정복(Divide and conquer) 방식으로 설계된 알고리즘이다.
-	 * 
-	 * 
-	 * @param array Array you want to sort
-	 * @param start index of start
-	 * @param end index of end
-	 * @return void
-	 */
-	
 	private static void mergeSort(int[] array, int start, int end) {
 		if(start < end) {
 			int center = (start + end) / 2;
@@ -107,7 +96,7 @@ public class SortAlgorithm {
 		//selectionSort(array, false);
 		//insertionSort(array);
 		//bubbleSort(array);
-		//mergeSort(array, 0, array.length-1);
+		mergeSort(array, 0, array.length-1);
 		System.out.println(Arrays.toString(array));
 	}
 
